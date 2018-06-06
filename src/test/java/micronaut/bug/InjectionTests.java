@@ -1,4 +1,4 @@
-package bug.micronaut;
+package micronaut.bug;
 
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.http.HttpRequest;
