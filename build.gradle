@@ -17,9 +17,9 @@ apply plugin:"io.spring.dependency-management"
 apply plugin:"com.github.johnrengelman.shadow"
 apply plugin:"application"
 apply plugin:"java"
+apply plugin: 'groovy'
 apply plugin:"net.ltgt.apt-eclipse"
 apply plugin:"net.ltgt.apt-idea"
-
 
 repositories {
     mavenLocal()
@@ -40,13 +40,22 @@ dependencies {
     compile "io.micronaut:inject"
     compile "io.micronaut:runtime"
     compileOnly "io.micronaut:inject-java"
+    runtime "ch.qos.logback:logback-classic:1.2.3"
+    testCompile "junit:junit:4.12"
+    testCompile "io.micronaut:inject-java"
+    testCompile("org.spockframework:spock-core:1.1-groovy-2.4") {
+        exclude group: "org.codehaus.groovy", module: "groovy-all"
+    }
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+
     compile "io.micronaut.configuration:hibernate-jpa"
     compile "com.h2database:h2:1.4.196"
     runtime "io.micronaut.configuration:jdbc-tomcat"
 
-    runtime "ch.qos.logback:logback-classic:1.2.3"
-    testCompile "junit:junit:4.12"
-    testCompile "io.micronaut:inject-java"
+    annotationProcessor "io.micronaut:inject-java"
+
+    compile "io.micronaut:security-jwt"
+
 }
 
 shadowJar {

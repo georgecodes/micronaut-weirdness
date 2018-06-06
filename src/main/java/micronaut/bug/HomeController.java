@@ -6,11 +6,12 @@ import org.hibernate.SessionFactory;
 
 import javax.inject.Inject;
 
+
 @Controller("/")
 public class HomeController {
 
     @Inject
-    SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
     @Get("/")
     public String index() {

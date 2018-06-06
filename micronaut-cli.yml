@@ -1,5 +1,5 @@
 profile: service
-defaultPackage: micronaut.bug
+defaultPackage: com.elevenware.brew
 ---
 testFramework: junit
 sourceLanguage: java
